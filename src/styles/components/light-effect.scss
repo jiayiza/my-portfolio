@@ -1,0 +1,67 @@
+.fpxu4o {
+  background: radial-gradient(100% 100% at 0% 0%, #ffffff 0%, rgb(219, 219, 219) 100%);
+  flex: none;
+  height: 150vh;
+  width: 100%;
+  left: 0;
+  mask: radial-gradient(
+      125% 100% at 0% 0%,
+      #000000 0%,
+      rgba(0, 0, 0, 0.22449) 88%,
+      rgba(0, 0, 0, 0) 100%
+    )
+    add;
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+
+  .yp8dcl {
+    background: linear-gradient(180deg, #ffffff 0%, rgb(255, 255, 255) 83.93442622950819%, rgba(255, 255, 255, 0) 100%);
+    flex: none;
+    height: 100%;
+    left: 75%;
+    mask: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgb(0, 0, 0.4) 11%,
+        rgba(0, 0, 0, 0) 36%,
+        rgba(0, 0, 0, 0.13) 67%,
+        rgba(0, 0, 0, 0.2) 78%,
+        rgba(0, 0, 0, 0) 97%
+      )
+      add;
+    max-width: 960px;
+    overflow: hidden;
+    position: absolute;
+    top: -209px;
+    width: 591px;
+  }
+
+  .tkmzk9 {
+    background: linear-gradient(180deg, #ffffff 0%, rgb(255, 255, 255) 83.93442622950819%, rgba(255, 255, 255, 0) 100%);
+    flex: none;
+    height: 100%;
+    left: 0%;
+    mask: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0) 11%,
+        rgb(0, 0, 0) 25%,
+        rgba(0, 0, 0, 0.55) 41%,
+        rgba(0, 0, 0, 0.13) 67%,
+        rgba(0, 0, 0, 1) 78%,
+        rgba(0, 0, 0, 0) 97%
+      )
+      add;
+    overflow: hidden;
+    position: absolute;
+    top: -209px;
+    width: 582px;
+
+    @media screen and (max-width: 800px) {
+      left: -50%;
+    }
+  }
+}

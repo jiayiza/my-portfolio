@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "keyframes";
+
+@layer components {
+  @import "components/light-effect";
+
+  .menu {
+    .links {
+      @apply hidden;
+    }
+
+    &.active {
+      .links {
+        @apply block;
+      }
+
+      .burger span {
+        @apply translate-y-0;
+
+        &:first-child {
+          @apply rotate-45;
+        }
+
+        &:last-child {
+          @apply -rotate-45;
+        }
+      }
+    }
+  }
+
+  .social-link {
+    &,
+    svg path {
+      @apply transition-all;
+    }
+
+    &:hover {
+      @apply border-opacity-100;
+
+      svg path {
+        fill-opacity: 1;
+      }
+    }
+  }
+
+  .arrow-link {
+    .arrow {
+      @apply transition-all;
+      @apply ease-out;
+      @apply duration-300;
+    }
+
+    &:hover {
+      .arrow {
+        @apply rotate-45;
+
+        path {
+          fill-opacity: 1;
+        }
+      }
+    }
+  }
+
+  .noise {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    user-select: none;
+    pointer-events: none;
+    z-index: 100;
+
+    &::after {
+      top: -10rem;
+      left: -10rem;
+      width: calc(100% + 20rem);
+      height: calc(100% + 20rem);
+      z-index: 100;
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      background-position: 50%;
+      background-image: url(../../public/images/noise.png);
+      pointer-events: none;
+      user-select: none;
+      animation: noise 2s steps(2) infinite;
+    }
+  }
+
+  .project-card {
+    .back {
+      z-index: 2;
+      transform-origin: center;
+    }
+    .front {
+      z-index: 1;
+    }
+
+    &:hover {
+      .back {
+        @apply scale-100 opacity-100;
+      }
+    }
+  }
+}

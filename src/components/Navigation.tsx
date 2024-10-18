@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
@@ -32,40 +32,42 @@ const Menu = () => {
   const burger = useRef<HTMLButtonElement>(null);
   const menu = useRef<HTMLDivElement>(null);
 
-  const { contextSafe } = useGSAP({ scope: container });
+  useGSAP(
+    (context, contextSafe) => {
+      if (!burger.current || !container.current) return;
 
-  const openMenu = contextSafe(() => {
-    const items = gsap.utils.toArray(
-      ["li", ".social-link-container"],
-      menu.current,
-    );
+      const currentBurger = burger.current;
+      const currentContainer = container.current;
 
-    gsap.from(items, {
-      opacity: 0,
-      x: "-=20",
-      stagger: 0.1,
-    });
-  });
+      const items = gsap.utils.toArray(
+        ["li", ".social-link-container"],
+        menu.current,
+      );
 
-  useEffect(() => {
-    if (!burger.current || !container.current) return;
+      const openMenu = contextSafe!(() => {
+        gsap.from(items, {
+          opacity: 0,
+          x: "-=20",
+          stagger: 0.1,
+          overwrite: true,
+        });
+      });
 
-    const currentBurger = burger.current;
-    const currentContainer = container.current;
+      const burgerClick = () => {
+        if (currentContainer.classList.contains("active")) {
+          currentContainer.classList.remove("active");
+        } else {
+          currentContainer.classList.add("active");
+          openMenu();
+        }
+      };
 
-    const burgerClick = () => {
-      if (currentContainer.classList.contains("active")) {
-        currentContainer.classList.remove("active");
-      } else {
-        currentContainer.classList.add("active");
-        openMenu();
-      }
-    };
+      currentBurger.addEventListener("click", burgerClick);
 
-    currentBurger.addEventListener("click", burgerClick);
-
-    return () => currentBurger.removeEventListener("click", burgerClick);
-  });
+      return () => currentBurger.removeEventListener("click", burgerClick);
+    },
+    { scope: container },
+  );
 
   return (
     /* add active class to toggle menu */
@@ -79,7 +81,7 @@ const Menu = () => {
       </button>
 
       <div
-        className="links absolute right-0 top-12 min-w-[200px] rounded-2xl bg-white bg-opacity-90 px-8 py-10"
+        className="links absolute right-0 top-12 min-w-[200px] rounded-2xl bg-white bg-opacity-90 px-8 py-10 backdrop-blur-sm"
         ref={menu}
       >
         <ul className="flex flex-col gap-6 text-lg">
