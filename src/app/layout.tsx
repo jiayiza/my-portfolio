@@ -3,6 +3,7 @@ import { Inter, Instrument_Serif } from "next/font/google";
 import "@/styles/index.scss";
 import Noise from "@/components/Noise";
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"], variable: "--inter" });
 const instrumentSerif = Instrument_Serif({
@@ -29,6 +30,7 @@ export default function RootLayout({
         <Noise />
         <Navigation />
         {children}
+        <Footer />
       </body>
     </html>
   );
