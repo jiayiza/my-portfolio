@@ -95,15 +95,7 @@ const Menu = () => {
           </li>
           <li>
             <Link
-              href={"/"}
-              className="text-black text-opacity-100 transition-colors duration-300 hover:text-opacity-50"
-            >
-              About
-            </Link>
-          </li>
-          <li>
-            <Link
-              href={"/"}
+              href={"#portfolio"}
               className="text-black text-opacity-100 transition-colors duration-300 hover:text-opacity-50"
             >
               Portfolio
@@ -111,7 +103,7 @@ const Menu = () => {
           </li>
           <li>
             <Link
-              href={"/"}
+              href={"#contact"}
               className="font-medium text-black text-opacity-100 transition-colors duration-300 hover:text-opacity-50"
             >
               Contatti
