@@ -10,7 +10,8 @@ export default function Footer() {
     >
       <footer className="fixed bottom-0 h-full w-full">
         <Light2 />
-        <div className="mx-6 flex h-full flex-col items-center justify-center gap-4">
+
+        <div className="relative mx-6 flex h-full flex-col items-center justify-center gap-4">
           <div className="mb-6 flex items-center justify-center gap-6">
             <div className="h-px w-16 rounded bg-gradient-to-l from-neutral-500"></div>
             <h4 className="text-center font-instrument-serif text-2xl italic text-neutral-500">
@@ -46,6 +47,21 @@ export default function Footer() {
               />
             </svg>
           </Link>
+
+          <div className="absolute bottom-8 flex w-full items-center justify-between px-6 text-white md:px-12">
+            <span className="text-sm">&copy; Jiayi Zhan, 2024</span>
+
+            <div className="flex items-center gap-4 text-sm">
+              <Link href={""}>Linkedin</Link>
+              <Link href={""}>Instagram</Link>
+              <Link
+                href={"mailto:jiayizhan8@gmail.com"}
+                className="rounded-full border border-zinc-800 px-3 py-1"
+              >
+                jiayizhan8@gmail.com
+              </Link>
+            </div>
+          </div>
         </div>
       </footer>
     </div>
