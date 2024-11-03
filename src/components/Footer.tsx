@@ -48,7 +48,7 @@ export default function Footer() {
             </svg>
           </Link>
 
-          <div className="absolute bottom-8 flex w-full items-center justify-between px-6 text-white md:px-12">
+          <div className="absolute bottom-8 flex w-full flex-col-reverse items-center justify-between gap-y-4 px-6 text-white md:flex-row md:px-12">
             <span className="text-sm">&copy; Jiayi Zhan, 2024</span>
 
             <div className="flex items-center gap-4 text-sm">
