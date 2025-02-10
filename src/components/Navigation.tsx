@@ -113,7 +113,8 @@ const Menu = () => {
 
         <div className="social-link-container mt-8 flex gap-4">
           <Link
-            href={""}
+            href={"https://www.linkedin.com/in/jiayizhan/"}
+            target="_blank"
             className="social-link flex h-10 w-20 justify-center rounded-full border border-black border-opacity-50 py-2"
           >
             <svg
@@ -133,7 +134,8 @@ const Menu = () => {
           </Link>
 
           <Link
-            href={""}
+            href={"https://www.instagram.com/_jiayizhan/"}
+            target="_blank"
             className="social-link flex h-10 w-20 justify-center rounded-full border border-black border-opacity-50 py-2"
           >
             <svg

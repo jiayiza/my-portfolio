@@ -14,8 +14,8 @@ export default function Home() {
         <Light1 />
         <h1 className="mb-5 text-center font-instrument-serif text-[min(8vw,3rem)] leading-normal md:text-6xl md:leading-tight lg:mb-6 lg:text-7xl">
           <span className="whitespace-nowrap">
-            Mi chiamo <em className="text-neutral-500">Jiayi</em>{" "}
-            <InlineImage src="/images/jiayi.jpg" />,
+            Mi chiamo <em className="text-neutral-500">Jiayi (JJ)</em>{" "}
+            <InlineImage src="/images/jiayi.png" />,
           </span>
           <br />
           <span className="whitespace-nowrap">
@@ -35,7 +35,7 @@ export default function Home() {
 
         <p className="mx-auto mb-8 max-w-[450px] text-center text-neutral-500 lg:mb-10">
           In 2 anni ho lavorato con attività locali nella creazioni di siti
-          intuitive e performanti, risolvendo problemi concreti.
+          accattivanti e performanti, risolvendo problemi concreti.
         </p>
 
         <Link
@@ -175,7 +175,7 @@ const InlineImage = ({
         className,
       )}
     >
-      <Image alt="" src={src} fill></Image>
+      <Image alt="" src={src} fill objectFit="cover"></Image>
     </span>
   );
 };

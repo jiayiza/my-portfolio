@@ -52,8 +52,18 @@ export default function Footer() {
             <span className="text-sm">&copy; Jiayi Zhan, 2024</span>
 
             <div className="flex items-center gap-4 text-sm">
-              <Link href={""}>Linkedin</Link>
-              <Link href={""}>Instagram</Link>
+              <Link
+                href={"https://www.linkedin.com/in/jiayizhan/"}
+                target="_blank"
+              >
+                Linkedin
+              </Link>
+              <Link
+                href={"https://www.instagram.com/_jiayizhan/"}
+                target="_blank"
+              >
+                Instagram
+              </Link>
               <Link
                 href={"mailto:jiayizhan8@gmail.com"}
                 className="rounded-full border border-zinc-800 px-3 py-1"
