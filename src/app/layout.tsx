@@ -4,6 +4,7 @@ import "@/styles/index.scss";
 import Noise from "@/components/Noise";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"], variable: "--inter" });
 const instrumentSerif = Instrument_Serif({
@@ -14,8 +15,7 @@ const instrumentSerif = Instrument_Serif({
 
 export const metadata: Metadata = {
   title: "Jiayi Zhan | Progettazione e sviluppo di siti web",
-  description:
-    "Sviluppatore di siti web con sede in provincia di Cuneo.",
+  description: "Sviluppatore di siti web con sede in provincia di Cuneo.",
 };
 
 export default function RootLayout({
@@ -32,6 +32,7 @@ export default function RootLayout({
         <Navigation />
         {children}
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
