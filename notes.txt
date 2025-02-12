@@ -1,2 +1,2 @@
-menu burger close on unfocus
-target blank links
+add image viewer when click images inside title
+adjust text animation in about section  
