@@ -52,6 +52,7 @@ export default function Footer() {
             <Link
               href={"mailto:jiayizhan8@gmail.com"}
               className="arrow-link flex items-center justify-center rounded-full border border-white px-6 py-3 text-white sm:w-fit"
+              target="_blank"
             >
               ... preferisco scrivere un{"'"}email
               <svg
@@ -90,6 +91,7 @@ export default function Footer() {
               <Link
                 href={"mailto:jiayizhan8@gmail.com"}
                 className="rounded-full border border-zinc-800 px-3 py-1"
+                target="_blank"
               >
                 jiayizhan8@gmail.com
               </Link>

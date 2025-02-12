@@ -53,7 +53,9 @@ const Menu = () => {
         });
       });
 
-      const burgerClick = () => {
+      const burgerClick = (e: MouseEvent) => {
+        e.stopPropagation();
+
         if (currentContainer.classList.contains("active")) {
           currentContainer.classList.remove("active");
         } else {
@@ -62,9 +64,19 @@ const Menu = () => {
         }
       };
 
-      currentBurger.addEventListener("click", burgerClick);
+      const outsideClick = () => {
+        if (currentContainer.classList.contains("active")) {
+          currentContainer.classList.remove("active");
+        }
+      };
 
-      return () => currentBurger.removeEventListener("click", burgerClick);
+      currentBurger.addEventListener("click", burgerClick);
+      window.addEventListener("click", outsideClick);
+
+      return () => {
+        currentBurger.removeEventListener("click", burgerClick);
+        window.removeEventListener("click", outsideClick);
+      };
     },
     { scope: container },
   );
