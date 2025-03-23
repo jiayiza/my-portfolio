@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter, Instrument_Serif } from "next/font/google";
 import "@/styles/index.scss";
 import Noise from "@/components/Noise";
-import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -30,7 +29,6 @@ export default function RootLayout({
         className={`${inter.variable} ${instrumentSerif.variable} bg-stone-300 font-inter`}
       >
         <Noise />
-        <Navigation />
         {children}
         <Footer />
         <Analytics />

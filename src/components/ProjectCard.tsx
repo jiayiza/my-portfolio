@@ -26,6 +26,7 @@ export default function ProjectCard({
       <div className="relative w-full flex-1 overflow-hidden rounded-2xl">
         <Image
           src={backImage}
+          loading="lazy"
           fill
           alt=""
           objectFit="cover"

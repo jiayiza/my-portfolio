@@ -73,7 +73,9 @@ export default function Footer() {
           </div>
 
           <div className="absolute bottom-8 flex w-full flex-col-reverse items-center justify-between gap-y-4 px-6 text-white md:flex-row md:px-12">
-            <span className="text-sm">&copy; Jiayi Zhan, 2024</span>
+            <span className="text-sm">
+              &copy; {new Date().getFullYear()} Jiayi Zhan
+            </span>
 
             <div className="flex items-center gap-4 text-sm">
               <Link
