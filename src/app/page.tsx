@@ -2,19 +2,13 @@ import { twMerge } from "tailwind-merge";
 import Image from "next/image";
 import Link from "next/link";
 import { Light1 } from "@/components/LightEffect";
-import ProjectCard from "@/components/ProjectCard";
 import ScrollAnimatedParagraph from "@/components/ScrollAnimatedParagraph";
 import Navigation from "@/components/Navigation";
 import Process from "@/components/Process";
+import Projects from "@/components/Projects";
 // import Lenis from "@/components/Lenis";
 
-import { type SanityDocument } from "next-sanity";
-import { client } from "@/sanity/lib/client";
-import { PORTFOLIO_QUERY } from "@/sanity/lib/queries";
-
 export default async function Home() {
-  const portfolios = await client.fetch<SanityDocument[]>(PORTFOLIO_QUERY);
-
   return (
     <>
       <Navigation />
@@ -75,14 +69,7 @@ export default async function Home() {
           className="grid grid-cols-1 grid-rows-1 gap-8 px-6 md:grid-cols-2 md:px-12 lg:gap-10"
           id="portfolio"
         >
-          {portfolios.map((portfolio) => (
-            <ProjectCard
-              key={portfolio._id}
-              title={portfolio.title}
-              frontImage={portfolio.first_image}
-              backImage={portfolio.second_image}
-            />
-          ))}
+          <Projects />
         </div>
 
         <div className="relative mt-40">
