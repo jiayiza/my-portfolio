@@ -8,7 +8,14 @@ import Navigation from "@/components/Navigation";
 import Process from "@/components/Process";
 // import Lenis from "@/components/Lenis";
 
-export default function Home() {
+import { type SanityDocument } from "next-sanity";
+import { client } from "@/sanity/lib/client";
+import { PORTFOLIO_QUERY } from "@/sanity/lib/queries";
+
+export default async function Home() {
+  const portfolios = await client.fetch<SanityDocument[]>(PORTFOLIO_QUERY);
+  console.log(portfolios);
+
   return (
     <>
       <Navigation />
@@ -69,23 +76,13 @@ export default function Home() {
           className="grid grid-cols-1 grid-rows-1 gap-8 px-6 md:grid-cols-2 md:px-12 lg:gap-10"
           id="portfolio"
         >
-          <ProjectCard
-            frontImage="/images/projects/fantamenu1.jpg"
-            backImage="/images/projects/fantamenu2.jpg"
-            title="FantaMenu"
-          />
-
-          <ProjectCard
-            frontImage="/images/projects/apsales1.jpg"
-            backImage="/images/projects/apsales2.jpg"
-            title="AP Sales"
-          />
-
-          <ProjectCard
-            frontImage="/images/projects/capperi1.jpg"
-            backImage="/images/projects/capperi2.jpg"
-            title="Capperi Summer Club"
-          />
+          {portfolios.map((portfolio) => (
+            <ProjectCard
+              title={portfolio.title}
+              frontImage={portfolio.first_image}
+              backImage={portfolio.second_image}
+            />
+          ))}
         </div>
 
         <div className="relative mt-40">
