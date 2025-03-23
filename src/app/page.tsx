@@ -14,7 +14,6 @@ import { PORTFOLIO_QUERY } from "@/sanity/lib/queries";
 
 export default async function Home() {
   const portfolios = await client.fetch<SanityDocument[]>(PORTFOLIO_QUERY);
-  console.log(portfolios);
 
   return (
     <>
@@ -78,6 +77,7 @@ export default async function Home() {
         >
           {portfolios.map((portfolio) => (
             <ProjectCard
+              key={portfolio._id}
               title={portfolio.title}
               frontImage={portfolio.first_image}
               backImage={portfolio.second_image}
