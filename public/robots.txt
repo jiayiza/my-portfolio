@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://jiayizhan.dev
+
+# Sitemaps
+Sitemap: https://jiayizhan.dev/sitemap.xml

@@ -2,7 +2,7 @@ import { twMerge } from "tailwind-merge";
 
 export default function Experiences() {
   return (
-    <div className="mt-32 pb-20 md:mt-40 md:pb-24">
+    <div className="mx-auto mt-32 max-w-[1290px] pb-20 md:mt-40 md:pb-24">
       <div className="flex items-center justify-center gap-6">
         <div className="h-px w-16 rounded bg-gradient-to-l from-neutral-600"></div>
         <h4 className="font-instrument-serif text-2xl italic text-neutral-600">

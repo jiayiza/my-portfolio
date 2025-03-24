@@ -15,7 +15,7 @@ export default async function Projects() {
 
   return (
     <div
-      className="grid grid-cols-1 grid-rows-1 gap-8 px-6 md:grid-cols-2 md:px-12 lg:gap-10"
+      className="grid grid-cols-1 grid-rows-1 gap-8 px-6 md:grid-cols-2 md:px-12 lg:gap-10 max-w-[1290px] mx-auto"
       id="portfolio"
     >
       {portfolios.map((portfolio) => (
