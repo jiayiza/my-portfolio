@@ -14,7 +14,10 @@ export default async function Projects() {
   );
 
   return (
-    <>
+    <div
+      className="grid grid-cols-1 grid-rows-1 gap-8 px-6 md:grid-cols-2 md:px-12 lg:gap-10"
+      id="portfolio"
+    >
       {portfolios.map((portfolio) => (
         <ProjectCard
           key={portfolio._id}
@@ -23,6 +26,6 @@ export default async function Projects() {
           backImage={portfolio.second_image}
         />
       ))}
-    </>
+    </div>
   );
 }

@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 export default function Process() {
   return (
+        <div className="mt-32 bg-stone-200 md:mt-40">
     <section className="mx-auto max-w-4xl px-4 py-24 md:px-8">
       <div className="space-y-16">
         <div className="space-y-4">
@@ -64,5 +65,6 @@ export default function Process() {
         </div>
       </div>
     </section>
+    </div>
   );
 }
