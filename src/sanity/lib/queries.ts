@@ -6,3 +6,11 @@ export const PORTFOLIO_QUERY = `
     "second_image": second_image.asset->url,
   }
 `;
+
+export const ALL_POSTS_QUERY = `
+  *[_type == 'post'] {
+    title,
+    'slug': slug.current,
+    'mainImage': mainImage.asset->url
+  }
+`

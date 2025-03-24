@@ -1,24 +1,41 @@
 import Link from "next/link";
+import Image from "next/image";
 
-export default function Blog() {
+import { type SanityDocument } from "next-sanity";
+import { client } from "@/sanity/lib/client";
+import { ALL_POSTS_QUERY } from "@/sanity/lib/queries";
+
+const options = { next: { revalidate: 60 } };
+
+export default async function Blog() {
+  const posts = await client.fetch<SanityDocument>(
+    ALL_POSTS_QUERY,
+    {},
+    options,
+  );
+
   return (
-    <main className="min-h-screen">
-      <nav className="fixed left-0 top-6 z-40 flex h-10 w-full justify-between px-6 md:px-12">
-        <Link
-          href={"/"}
-          className="flex items-center justify-center rounded-full bg-white px-6 py-1 font-instrument-serif text-xl italic hover:bg-opacity-90"
-        >
-          JJ scrive...
-        </Link>
+    <div>
+      <h1 className="mb-8 text-2xl font-bold italic">Ultimi post</h1>
 
-        <Link href={"/"} className="hover:underline">
-          ← Torna alla home
-        </Link>
-      </nav>
+      <div className="grid grid-cols-2 gap-6">
+        {posts.map((post) => (
+          <Link href={`/blog/${post.slug}`} className="block" key={post._id}>
+            <div className="image relative mb-2 aspect-video w-full overflow-hidden rounded-2xl">
+              <Image
+                src={post.mainImage}
+                alt=""
+                fill
+                objectFit="cover"
+                objectPosition="center"
+                className="h-full w-full"
+              />
+            </div>
 
-      <section className="mx-auto mt-32 max-w-[800px] px-4">
-        <h1>Ultimi post</h1>
-      </section>
-    </main>
+            <h3 className="text-md text-center font-medium">{post.title}</h3>
+          </Link>
+        ))}
+      </div>
+    </div>
   );
 }
