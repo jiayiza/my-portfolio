@@ -8,7 +8,7 @@ import { ALL_POSTS_QUERY } from "@/sanity/lib/queries";
 const options = { next: { revalidate: 60 } };
 
 export default async function Blog() {
-  const posts = await client.fetch<SanityDocument>(
+  const posts = await client.fetch<SanityDocument[]>(
     ALL_POSTS_QUERY,
     {},
     options,
