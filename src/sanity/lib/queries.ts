@@ -1,4 +1,6 @@
-export const PORTFOLIO_QUERY = `
+import groq from "groq";
+
+export const PORTFOLIO_QUERY = groq`
   *[_type == "portfolio" && show_on_website] {
     _id,
     title,
@@ -8,10 +10,20 @@ export const PORTFOLIO_QUERY = `
   }
 `;
 
-export const ALL_POSTS_QUERY = `
-  *[_type == 'post'] {
+export const ALL_POSTS_QUERY = groq`
+  *[_type == 'post' && publishedAt < now()] {
     title,
     'slug': slug.current,
     'mainImage': mainImage.asset->url
+  } | order(publishedAt desc)
+`;
+
+export const SINGLE_ARTICLE_QUERY = groq`
+  *[_type == "post" && slug.current == $slug][0] {
+    title,
+    "name": author->name,
+    "categories": categories[]->title,
+    "authorImage": author->image,
+    body
   }
-`
+`;
