@@ -8,7 +8,7 @@ const getBlogArticles = async () => {
 
   return articles.map((article) => {
     return {
-      url: `https://jiayizhan.dev/blog/${article.slug.current}`,
+      url: `https://jiayizhan.dev/blog/${article.slug}`,
       lastModified: new Date(),
       priority: 0.7,
     };
