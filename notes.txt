@@ -1,2 +1,0 @@
-add image viewer when click images inside title
-adjust text animation in about section  
