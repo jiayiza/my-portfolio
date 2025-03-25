@@ -18,7 +18,7 @@ export default async function Blog() {
     <div>
       <h1 className="mb-8 text-2xl font-bold italic">Ultimi post</h1>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {posts.map((post) => (
           <Link href={`/blog/${post.slug}`} className="block" key={post._id}>
             <div className="image relative mb-2 aspect-video w-full overflow-hidden rounded-2xl">
@@ -32,7 +32,7 @@ export default async function Blog() {
               />
             </div>
 
-            <h3 className="text-md text-center font-medium">{post.title}</h3>
+            <h3 className="text-md font-medium md:text-center">{post.title}</h3>
           </Link>
         ))}
       </div>
