@@ -1,10 +1,10 @@
 import type { MetadataRoute } from "next";
 import { type SanityDocument } from "next-sanity";
 import { client } from "@/sanity/lib/client";
-import { ALL_POSTS_QUERY, PORTFOLIO_QUERY } from "@/sanity/lib/queries";
+import { ALL_ARTICLES_QUERY, PORTFOLIO_QUERY } from "@/sanity/lib/queries";
 
 const getBlogArticles = async () => {
-  const articles = await client.fetch<SanityDocument[]>(ALL_POSTS_QUERY);
+  const articles = await client.fetch<SanityDocument[]>(ALL_ARTICLES_QUERY);
 
   return articles.map((article) => {
     return {

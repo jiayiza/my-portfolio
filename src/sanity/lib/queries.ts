@@ -10,7 +10,7 @@ export const PORTFOLIO_QUERY = groq`
   }
 `;
 
-export const ALL_POSTS_QUERY = groq`
+export const ALL_ARTICLES_QUERY = groq`
   *[_type == 'post' && publishedAt < now()] {
     title,
     'slug': slug.current,
@@ -23,7 +23,9 @@ export const SINGLE_ARTICLE_QUERY = groq`
     title,
     "name": author->name,
     "categories": categories[]->title,
-    "authorImage": author->image,
+    "authorImage": author->image.asset->url,
+    "mainImage": mainImage.asset->url,
+    publishedAt,
     body
   }
 `;

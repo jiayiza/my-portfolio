@@ -3,13 +3,13 @@ import Image from "next/image";
 
 import { type SanityDocument } from "next-sanity";
 import { client } from "@/sanity/lib/client";
-import { ALL_POSTS_QUERY } from "@/sanity/lib/queries";
+import { ALL_ARTICLES_QUERY } from "@/sanity/lib/queries";
 
 const options = { next: { revalidate: 60 } };
 
 export default async function Blog() {
   const posts = await client.fetch<SanityDocument[]>(
-    ALL_POSTS_QUERY,
+    ALL_ARTICLES_QUERY,
     {},
     options,
   );

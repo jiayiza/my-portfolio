@@ -1,0 +1,19 @@
+.mainSection {
+  @apply pt-2 pb-20;
+
+  & > * {
+    @apply mb-4;
+
+    strong {
+      @apply font-semibold;
+    }
+  }
+
+  h2 {
+    @apply text-2xl font-bold pt-2;
+  }
+
+  h3 {
+    @apply text-xl font-bold;
+  }
+}
