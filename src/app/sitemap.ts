@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { type SanityDocument } from "next-sanity";
 import { client } from "@/sanity/lib/client";
-import { ALL_POSTS_QUERY } from "@/sanity/lib/queries";
+import { ALL_POSTS_QUERY, PORTFOLIO_QUERY } from "@/sanity/lib/queries";
 
 const getBlogArticles = async () => {
   const articles = await client.fetch<SanityDocument[]>(ALL_POSTS_QUERY);
@@ -15,8 +15,21 @@ const getBlogArticles = async () => {
   });
 };
 
+const getPortfolios = async () => {
+  const portfolios = await client.fetch<SanityDocument[]>(PORTFOLIO_QUERY);
+
+  return portfolios.map((portfolio) => {
+    return {
+      url: `https://jiayizhan.dev/portfolio/${portfolio.slug}`,
+      lastModified: new Date(),
+      priority: 0.1,
+    };
+  });
+};
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const articles = await getBlogArticles();
+  const portfolios = await getPortfolios();
 
   return [
     {
@@ -32,5 +45,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     },
     ...articles,
+    ...portfolios,
   ];
 }
