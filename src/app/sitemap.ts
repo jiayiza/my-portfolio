@@ -29,6 +29,7 @@ const getPortfolios = async () => {
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const articles = await getBlogArticles();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const portfolios = await getPortfolios();
 
   return [
@@ -45,6 +46,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     },
     ...articles,
-    ...portfolios,
+    // ...portfolios,
   ];
 }
