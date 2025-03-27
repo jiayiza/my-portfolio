@@ -15,7 +15,7 @@ const instrumentSerif = Instrument_Serif({
 
 export const metadata: Metadata = {
   title: "Jiayi Zhan | Progettazione e sviluppo di siti web",
-  description: "Sviluppatore di siti web con sede in provincia di Cuneo.",
+  description: "Sviluppatore di siti web in provincia di Cuneo e dintorni.",
 };
 
 export default function RootLayout({

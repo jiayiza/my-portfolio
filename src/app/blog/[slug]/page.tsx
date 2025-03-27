@@ -43,7 +43,7 @@ export default async function Page({ params }: Props) {
   return (
     <article>
       <header>
-        <h1 className="mb-6 text-4xl font-bold">{article.title}</h1>
+        <h1 className="mb-6 text-3xl md:text-4xl font-bold">{article.title}</h1>
 
         <p className="mb-6 flex items-center justify-between">
           <Link href={"/"} className="">

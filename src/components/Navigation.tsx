@@ -83,7 +83,14 @@ const Menu = () => {
 
   return (
     /* add active class to toggle menu */
-    <div className="menu relative h-full w-fit" ref={container}>
+    <div className="menu relative h-full w-fit flex gap-4" ref={container}>
+      <Link
+        href={"/blog"}
+        className="bg-black text-white relative flex h-full w-auto cursor-pointer items-center justify-center rounded-full hover:bg-opacity-90 px-8"
+      >
+        Blog
+      </Link>
+
       <button
         className="burger relative flex aspect-square h-full w-auto cursor-pointer items-center justify-center rounded-full bg-white hover:bg-opacity-90"
         ref={burger}
