@@ -1,4 +1,10 @@
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Tecnologie, Sviluppo Web e Business | JJ scrive...",
+  description: "Un blog di Jiayi che esplora tecnologie, sviluppo web, innovazione e business. Articoli e riflessioni su programmazione, tech trends e digital transformation.",
+};
 
 export default function BlogLayout({
   children,
