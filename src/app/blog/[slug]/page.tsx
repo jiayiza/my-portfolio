@@ -8,7 +8,7 @@ import Image from "next/image";
 
 import styles from "./styles.module.scss";
 
-import type { Metadata, ResolvingMetadata } from "next";
+import type { Metadata } from "next";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -17,18 +17,17 @@ type Props = {
 
 export async function generateMetadata(
   { params }: Props,
-  parent: ResolvingMetadata,
 ): Promise<Metadata> {
   const { slug } = await params;
   const article = await client.fetch(SINGLE_ARTICLE_QUERY, { slug });
 
-  // optionally access and extend (rather than replace) parent metadata
-  const previousImages = (await parent).openGraph?.images || [];
-
   return {
     title: article.title,
     openGraph: {
-      images: [article.mainImage, ...previousImages],
+      images: [article.mainImage],
+    },
+    twitter: {
+      images: [article.mainImage],
     },
   };
 }
