@@ -15,9 +15,7 @@ type Props = {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
-export async function generateMetadata(
-  { params }: Props,
-): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const article = await client.fetch(SINGLE_ARTICLE_QUERY, { slug });
 
@@ -28,6 +26,9 @@ export async function generateMetadata(
     },
     twitter: {
       images: [article.mainImage],
+    },
+    alternates: {
+      canonical: `/blog/${slug}`,
     },
   };
 }
@@ -43,7 +44,7 @@ export default async function Page({ params }: Props) {
   return (
     <article>
       <header>
-        <h1 className="mb-6 text-3xl md:text-4xl font-bold">{article.title}</h1>
+        <h1 className="mb-6 text-3xl font-bold md:text-4xl">{article.title}</h1>
 
         <p className="mb-6 flex items-center justify-between">
           <Link href={"/"} className="">
