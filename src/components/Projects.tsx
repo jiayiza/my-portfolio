@@ -24,6 +24,7 @@ export default async function Projects() {
           title={portfolio.title}
           frontImage={portfolio.first_image}
           backImage={portfolio.second_image}
+          href={portfolio.website}
         />
       ))}
     </div>

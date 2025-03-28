@@ -4,6 +4,7 @@ export const PORTFOLIO_QUERY = groq`
   *[_type == "portfolio" && show_on_website] {
     _id,
     title,
+    website,
     "slug": slug.current,
     "first_image": first_image.asset->url,
     "second_image": second_image.asset->url,

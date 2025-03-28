@@ -7,6 +7,7 @@ type ProjectCardProps = {
   backImage: string;
   title: string;
   className?: string;
+  href?: string;
 };
 
 export default function ProjectCard({
@@ -14,10 +15,12 @@ export default function ProjectCard({
   backImage,
   title,
   className = "",
+  href,
 }: ProjectCardProps) {
   return (
     <Link
-      href={""}
+      href={href || "/"}
+      target={href ? "_blank" : "_self"}
       className={twMerge(
         `project-card flex aspect-[1.4] w-full flex-col gap-4`,
         className,
